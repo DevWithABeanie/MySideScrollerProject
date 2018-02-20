@@ -15,9 +15,10 @@ public class PlayerController : MonoBehaviour {
     public LayerMask whatIsGround;
     private bool characterIsGrounded;
 
+    private Animator animator; 
 
 	void Start () {
-		
+        animator = GetComponent<Animator>(); 
 	}
 	
 	
@@ -55,6 +56,8 @@ public class PlayerController : MonoBehaviour {
             characterDoubleJump = true;
         }
 
+        animator.SetBool("Grounded", characterIsGrounded); 
+
         /////////////////////
         //Movement Controls//
         /////////////////////
@@ -68,5 +71,15 @@ public class PlayerController : MonoBehaviour {
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(-characterMoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
         }
+
+        if(GetComponent<Rigidbody2D>().velocity.x > 0)
+        {
+            transform.localScale = new Vector3(2, 2, 3); 
+        }else if(GetComponent<Rigidbody2D>().velocity.x < 0)
+        {
+            transform.localScale = new Vector3(-2, 2, 3);
+        }
+
+        animator.SetFloat("moveSpeed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x)); 
     }
 }

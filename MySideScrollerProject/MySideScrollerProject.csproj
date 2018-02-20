@@ -283,6 +283,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Level_Scripts\CheckPoint.cs" />
+    <Compile Include="Assets\Scripts\Level_Scripts\DestoryParticleSystem.cs" />
     <Compile Include="Assets\Scripts\Level_Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\MainCharacter_Scripts\DamageCharacter.cs" />
     <Compile Include="Assets\Scripts\MainCharacter_Scripts\PlayerController.cs" />

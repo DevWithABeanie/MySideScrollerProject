@@ -397,6 +397,7 @@ GameObject:
   - component: {fileID: 885557175}
   - component: {fileID: 885557174}
   - component: {fileID: 885557173}
+  - component: {fileID: 885557178}
   m_Layer: 0
   m_Name: Debug_MainCharacter
   m_TagString: Player
@@ -526,6 +527,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &885557178
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 885557172}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5fee59860fa0a2f498be47d464a4b70a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &911983283
 Prefab:
   m_ObjectHideFlags: 0
@@ -805,6 +823,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCheckPoint: {fileID: 2012646115}
+  deathParticle: {fileID: 1118668546303392, guid: 13d9d1ddc641a964f8a6e042d960ce75,
+    type: 2}
+  respawnParticle: {fileID: 1304631038620772, guid: af0596bd9afd4544795b0ad420374820,
+    type: 2}
+  respawnDelay: 2
 --- !u!1 &1972825115
 GameObject:
   m_ObjectHideFlags: 0
