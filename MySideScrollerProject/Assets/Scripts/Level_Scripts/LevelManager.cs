@@ -34,7 +34,8 @@ public class LevelManager : MonoBehaviour {
         Debug.Log("Character has Respawned");
         Instantiate(deathParticle, playerController.transform.position, playerController.transform.rotation);
         playerController.enabled = false;
-        playerController.GetComponent<Renderer>().enabled = false; 
+        playerController.GetComponent<Renderer>().enabled = false;
+        playerController.GetComponent<Rigidbody2D>().velocity = Vector2.zero; 
         yield return new WaitForSeconds(respawnDelay); 
         playerController.transform.position = currentCheckPoint.transform.position;
         playerController.enabled = true;

@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour {
     [Header("Character Movement Varibles")]
     public float characterMoveSpeed;
     public float characterJumpHight;
-    private bool characterDoubleJump; 
+    private bool characterDoubleJump;
+    private float characterMoveVelocity; 
 
     [Header("Ground Check Varibles")]
     public Transform groundCheck;
@@ -30,7 +31,7 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate()
     {
-        characterIsGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadious, whatIsGround); 
+        characterIsGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadious, whatIsGround);  
     }
 
     public void CharacterMovement()
@@ -56,21 +57,27 @@ public class PlayerController : MonoBehaviour {
             characterDoubleJump = true;
         }
 
-        animator.SetBool("Grounded", characterIsGrounded); 
+        animator.SetBool("Grounded", characterIsGrounded);
 
         /////////////////////
         //Movement Controls//
         /////////////////////
 
+        characterMoveVelocity = 0f; 
+
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(characterMoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(characterMoveSpeed, GetComponent<Rigidbody2D>().velocity.y);//
+            characterMoveVelocity = characterMoveSpeed; 
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(-characterMoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(-characterMoveSpeed, GetComponent<Rigidbody2D>().velocity.y);//
+            characterMoveVelocity = -characterMoveSpeed; 
         }
+
+        GetComponent<Rigidbody2D>().velocity = new Vector2(characterMoveVelocity, GetComponent<Rigidbody2D>().velocity.y);
 
         if(GetComponent<Rigidbody2D>().velocity.x > 0)
         {
